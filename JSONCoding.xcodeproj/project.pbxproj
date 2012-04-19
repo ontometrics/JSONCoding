@@ -20,6 +20,13 @@
 		AC8E4ABF153F13B1009044BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAD153F13B1009044BF /* Foundation.framework */; };
 		AC8E4AC2153F13B1009044BF /* libJSONCoding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAA153F13B1009044BF /* libJSONCoding.a */; };
 		AC8E4AC8153F13B1009044BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC8E4AC6153F13B1009044BF /* InfoPlist.strings */; };
+		ACD142FE1540B62300464304 /* JSONDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD142FC1540B62300464304 /* JSONDecoder.h */; };
+		ACD142FF1540B62300464304 /* JSONDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD142FD1540B62300464304 /* JSONDecoder.m */; };
+		ACD143001540B62300464304 /* JSONDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD142FD1540B62300464304 /* JSONDecoder.m */; };
+		ACD143041540B86E00464304 /* JSONDecoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD143031540B86E00464304 /* JSONDecoderTest.m */; };
+		ACD143071540C62900464304 /* NSString+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD143051540C62900464304 /* NSString+Additions.h */; };
+		ACD143081540C62900464304 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD143061540C62900464304 /* NSString+Additions.m */; };
+		ACD143091540C62900464304 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD143061540C62900464304 /* NSString+Additions.m */; };
 		ACE937C7153F506D007A3E67 /* JSONEncoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937C6153F506D007A3E67 /* JSONEncoderTest.m */; };
 		ACE937CD153F687A007A3E67 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = ACE937CB153F687A007A3E67 /* NSData+Base64.h */; };
 		ACE937CE153F687A007A3E67 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937CC153F687A007A3E67 /* NSData+Base64.m */; };
@@ -55,6 +62,11 @@
 		AC8E4ABD153F13B1009044BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		AC8E4AC5153F13B1009044BF /* JSONCodingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSONCodingTests-Info.plist"; sourceTree = "<group>"; };
 		AC8E4AC7153F13B1009044BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ACD142FC1540B62300464304 /* JSONDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDecoder.h; sourceTree = "<group>"; };
+		ACD142FD1540B62300464304 /* JSONDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDecoder.m; sourceTree = "<group>"; };
+		ACD143031540B86E00464304 /* JSONDecoderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDecoderTest.m; sourceTree = "<group>"; };
+		ACD143051540C62900464304 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		ACD143061540C62900464304 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		ACE937C6153F506D007A3E67 /* JSONEncoderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONEncoderTest.m; sourceTree = "<group>"; };
 		ACE937C9153F5A62007A3E67 /* TestDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDomain.h; sourceTree = "<group>"; };
 		ACE937CB153F687A007A3E67 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -145,8 +157,12 @@
 				AC8E4AB0153F13B1009044BF /* Supporting Files */,
 				ACE937CB153F687A007A3E67 /* NSData+Base64.h */,
 				ACE937CC153F687A007A3E67 /* NSData+Base64.m */,
+				ACD143051540C62900464304 /* NSString+Additions.h */,
+				ACD143061540C62900464304 /* NSString+Additions.m */,
 				AC0E9A76153F4D22003D3AE0 /* JSONEncoder.h */,
 				AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */,
+				ACD142FC1540B62300464304 /* JSONDecoder.h */,
+				ACD142FD1540B62300464304 /* JSONDecoder.m */,
 			);
 			path = JSONCoding;
 			sourceTree = "<group>";
@@ -166,6 +182,7 @@
 				AC0E9A7B153F4F16003D3AE0 /* BaseTestCase.h */,
 				AC0E9A7C153F4F16003D3AE0 /* BaseTestCase.m */,
 				ACE937C6153F506D007A3E67 /* JSONEncoderTest.m */,
+				ACD143031540B86E00464304 /* JSONDecoderTest.m */,
 				AC8E4AC4153F13B1009044BF /* Supporting Files */,
 			);
 			path = JSONCodingTests;
@@ -189,6 +206,8 @@
 			files = (
 				AC0E9A78153F4D22003D3AE0 /* JSONEncoder.h in Headers */,
 				ACE937CD153F687A007A3E67 /* NSData+Base64.h in Headers */,
+				ACD142FE1540B62300464304 /* JSONDecoder.h in Headers */,
+				ACD143071540C62900464304 /* NSString+Additions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +311,8 @@
 			files = (
 				AC0E9A79153F4D22003D3AE0 /* JSONEncoder.m in Sources */,
 				ACE937CE153F687A007A3E67 /* NSData+Base64.m in Sources */,
+				ACD142FF1540B62300464304 /* JSONDecoder.m in Sources */,
+				ACD143081540C62900464304 /* NSString+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +327,9 @@
 				ACE937C7153F506D007A3E67 /* JSONEncoderTest.m in Sources */,
 				ACE937CF153F690E007A3E67 /* NSData+Base64.m in Sources */,
 				ACE937D2153F6C39007A3E67 /* Manager.m in Sources */,
+				ACD143001540B62300464304 /* JSONDecoder.m in Sources */,
+				ACD143041540B86E00464304 /* JSONDecoderTest.m in Sources */,
+				ACD143091540C62900464304 /* NSString+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

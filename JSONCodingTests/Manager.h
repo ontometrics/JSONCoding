@@ -11,5 +11,7 @@
 @interface Manager : Employee
 
 @property (nonatomic, strong) NSSet * employees;
+@property (nonatomic, strong) NSArray * nextMeetings; //array of dates
 
+- (void) addEmployee:(Employee *) employee;
 @end
