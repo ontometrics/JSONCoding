@@ -19,12 +19,12 @@
 - (BOOL)isKeySuppressed:(NSString *)key forClass:(Class)class;
 - (void)setObject:(NSObject *) object forKey:(NSString *) key;
 
-- (void)encodeData:(NSData *)data forKey:(NSString *)key;
-- (void)encodeDate:(NSDate *)date forKey:(NSString *)key;
+- (NSObject *) getEncodingFor:(NSObject *) object;
+- (NSObject *) getEncodingForDate:(NSDate *)date;
+- (NSObject *) getEncodingForArray:(NSArray *)array;
 @end
     
 @implementation JSONEncoder{
-    NSMutableSet*			encounteredObjects;
     NSMutableArray*			objectStack;
     NSMutableArray*			jsonObjectStack;    
     NSMutableDictionary*	suppressedKeys;
@@ -50,7 +50,6 @@
 
 - (id)init {
 	if ((self = [super init])) {
-		encounteredObjects = [NSMutableSet new];
 		objectStack = [NSMutableArray new];
 		suppressedKeys = [NSMutableDictionary new];
 		
@@ -96,7 +95,10 @@
     if([NSJSONSerialization isValidJSONObject:object]){
         return YES;
     }
-    if ([object isKindOfClass:[NSString class]]) {
+    if([object isKindOfClass:[NSString class]]) {
+        return YES;
+    }
+    if ([object isKindOfClass:[NSNumber class]]) {
         return YES;
     }
     return NO;
@@ -115,8 +117,6 @@
 }
 
 - (void)encodeObject:(id)object {
-    [encounteredObjects addObject:object];
-	
     [self push:object];
     [object encodeWithCoder:self];
     
@@ -140,21 +140,25 @@
     [self setObject:[NSNumber numberWithLong:value] forKey:key];    
 }
 
-- (void)encodeObject:(id)object forKey:(NSString *)key {
-	if(!object || [self isKeySuppressed:key forClass:[self topObjectClass]])
-		return;
+- (NSObject *) getEncodingFor:(id) object{
+    if([objectStack containsObject:object]){
+        [NSException raise:@"Circular Reference Not Allowed" format:@"Found circular reference for %@ ", object];
+    }
+
     if([self isValidJSONObject:object]){
-        [self setObject:object forKey:key];   
-    }else{ //TODO NSSet
-        NSLog(@"%@ class not valid", [object class]);
+        return object;   
+    }else{
         if ([object isKindOfClass:[NSData class]]) {
-            [self encodeData:object forKey:key];
+            return [(NSData *) object base64EncodedString];
         }else if ([object isKindOfClass:[NSSet class]]) {
+            return [self getEncodingForArray:[(NSSet *) object allObjects]];
+            
+        }else if ([object isKindOfClass:[NSArray class]]) {
+            return [self getEncodingForArray:(NSArray *) object];
+            
         }else if([object isKindOfClass:[NSDate class]]){
-            [self encodeDate:(NSDate *)object forKey:key];
+            return [self getEncodingForDate:(NSDate *) object];
         }else{
-            [encounteredObjects addObject:object];
-                
             [self push:object];
             [object encodeWithCoder:self];
             
@@ -162,27 +166,51 @@
             
             [self pop];
             
-            [[self topObject] setObject:objectEncoding forKey:key];
+            return objectEncoding;
         }
 	}
-   // NSLog(@"jsonStack %@", jsonObjectStack);
+
 }
 
-- (void)encodeData:(NSData *)data forKey:(NSString *)key {
-	if(data){
-        [self setObject:[data base64EncodedString] forKey:key];
+- (NSObject *) getEncodingForDate:(NSDate *)date{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm':00' z";
+    
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [dateFormatter setTimeZone:gmt];
+    return [dateFormatter stringFromDate:date];
+
+}
+
+- (NSObject *) getEncodingForArray:(NSArray *)arrayObject{
+	if (![arrayObject count]) {
+		return nil;
+	}else{
+        [self push:arrayObject];
+        
+        NSMutableArray * array = [NSMutableArray new];
+        for (id object in arrayObject) {
+            NSObject *objectEncoding = [self getEncodingFor:object];
+            if(objectEncoding){
+                [array addObject:objectEncoding];
+            }
+		}
+        
+        [self pop];
+        
+        return array;
 	}
 }
 
-- (void)encodeDate:(NSDate *)date forKey:(NSString *)key{
-	if (date != nil) {
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm':00' z";
-		
-		NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
-		[dateFormatter setTimeZone:gmt];
-		[self setObject:[dateFormatter stringFromDate:date] forKey:key];
-	}
+- (void)encodeObject:(id)object forKey:(NSString *)key {
+	if(!object || [self isKeySuppressed:key forClass:[self topObjectClass]])
+		return;
+    
+    NSObject *objectEncoding = [self getEncodingFor:object];
+    if(objectEncoding){
+        [[self topObject] setObject:objectEncoding forKey:key];
+    }
+    NSLog(@"stack %@", jsonObjectStack);
 }
 
 @end
