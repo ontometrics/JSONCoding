@@ -13,5 +13,6 @@
 @property(nonatomic, strong) NSString * name;
 @property(nonatomic, strong) NSDate * dateOfBirth;
 @property(nonatomic, strong) NSNumber * nationalID;
+@property(nonatomic, strong) NSSet * favoriteNumbers; 
 
 @end

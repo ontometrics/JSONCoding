@@ -14,5 +14,7 @@
 
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, strong) NSData * resume;
+@property (nonatomic, strong) NSSet * skills;
+@property (nonatomic, strong) NSArray * workExperiences;
 @property (nonatomic, strong) Manager * manager;
 @end
