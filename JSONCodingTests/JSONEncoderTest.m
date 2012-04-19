@@ -72,7 +72,7 @@
     encoder = [JSONEncoder encoder]; 
     [encoder encodeObject:employee];
     NSString * jsonWithManager = [encoder json];
-    
+    NSLog(@"JSON With Manager %@", jsonWithManager);
     encoder = [JSONEncoder encoder]; 
     [encoder suppressKey:@"manager" forClass:[Employee class]];
     [encoder encodeObject:employee];
@@ -104,7 +104,7 @@
     json = [encoder json];
     //this should be sorted
     assertThat(json, containsString(@"\"workExperiences\":[\"manager at xxxx\",\"manager at yyyy\"]"));
-    
+    NSLog(@"JSON %@", json);
     NSDate * date1 = [NSDate dateWithTimeIntervalSinceNow:3600];
     NSDate * date2 = [NSDate dateWithTimeIntervalSinceNow:3600 * 4];    
     [manager setNextMeetings:[NSArray arrayWithObjects:date1, date2, nil ]];
@@ -118,6 +118,7 @@
     encoder = [JSONEncoder encoder]; 
     [encoder encodeObject:manager];
     json = [encoder json];
+    NSLog(@"JSON %@", json);
     assertThat(json, containsString([NSString stringWithFormat:@"\"nextMeetings\":[\"%@\",\"%@\"]", [dateFormatter stringFromDate:date1], [dateFormatter stringFromDate:date2]]));
 }
 
