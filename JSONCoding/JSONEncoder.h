@@ -6,8 +6,11 @@
 //  Copyright (c) 2012 Ontometrics. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface JSONEncoder : NSObject
+@interface JSONEncoder : NSCoder
 
++ (id)encoder;
+- (NSString *) json;
+- (void)suppressKey:(NSString *)key forClass:(Class)aClass;
 @end

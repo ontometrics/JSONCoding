@@ -6,8 +6,12 @@
 //  Copyright (c) 2012 Ontometrics. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface Person : NSObject
+@interface Person : NSObject <NSCoding>
+
+@property(nonatomic, strong) NSString * name;
+@property(nonatomic, strong) NSDate * dateOfBirth;
+@property(nonatomic, strong) NSNumber * nationalID;
 
 @end

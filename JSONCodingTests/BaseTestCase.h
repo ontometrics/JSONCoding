@@ -10,7 +10,6 @@
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #import <SenTestingKit/SenTestingKit.h>
-#import "TestConstants.h"
 
 /**
  * Just provides constants to keep asserts clean.

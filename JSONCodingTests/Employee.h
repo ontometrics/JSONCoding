@@ -8,6 +8,11 @@
 
 #import "Person.h"
 
+@class Manager;
+
 @interface Employee : Person
 
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSData * resume;
+@property (nonatomic, strong) Manager * manager;
 @end

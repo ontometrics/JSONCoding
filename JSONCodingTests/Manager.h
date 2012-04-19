@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 Ontometrics. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Employee.h"
 
-@interface Manager : NSObject
+@interface Manager : Employee
+
+@property (nonatomic, strong) NSSet * employees;
 
 @end
