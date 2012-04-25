@@ -14,6 +14,8 @@
 
 - (NSArray *)decodeArrayOfClass:(Class)class;
 - (NSArray *)decodeArrayOfPrimitives;
+- (NSObject *)decodeHibernateProxy;
+- (NSDate *) decodeDate;
 - (NSObject *)decodeFoundationObject:(id) object;
 - (void)pushObject:(id)jsonObject withId:(NSString *)jsonObjectId;
 - (void)pop;
@@ -56,11 +58,16 @@
 - (id)decodeObject {
     Class class = [self getClassForKey:[self topJsonObjectId]];
     
-    //TODO add handle for hibernate proxies
-
 	id object = nil;
-	if ([class isSubclassOfClass:[NSNull class]]) {
-		object = nil;
+    if([[self topJsonObject] isKindOfClass:[NSDictionary class]] &&
+       [[[self topJsonObject] allKeys] containsObject:@"@class"]){
+        
+        object = [self decodeHibernateProxy];
+        
+    }else if ([class isSubclassOfClass:[NSNull class]]) {
+		
+        object = nil;
+        
 	} else if([[self topJsonObject] isKindOfClass:[NSArray class]]){
         
 		object = [self decodeArrayOfClass:class];
@@ -97,25 +104,24 @@
 }
 
 - (NSArray *)decodeArrayOfClass:(Class)class{
-    NSString * key = nil; 
-    NSArray * jsonArray = nil;
+    NSDictionary * innerDictionary = nil;    
 
 	if([[self topJsonObject] isKindOfClass:[NSArray class]]){
-        NSDictionary * innerDictionary = [(NSArray *)[self topJsonObject] objectAtIndex:0];
+        innerDictionary = [(NSArray *)[self topJsonObject] objectAtIndex:0];
         
         if(![innerDictionary isKindOfClass:[NSDictionary class]]){
             return [self decodeArrayOfPrimitives];
         }
         if([[innerDictionary allKeys] count] > 1){
-            jsonArray = (NSArray *) [self topJsonObject];
+            innerDictionary = [NSDictionary dictionaryWithObject:[self topJsonObject] forKey:@"object"];
         }
         
 	}else{
-        NSDictionary * innerDictionary = [self topJsonObject];
-        key = [[innerDictionary allKeys] objectAtIndex:0];
-        jsonArray = [innerDictionary objectForKey:key];
+        innerDictionary = [self topJsonObject];
     }
     
+    NSString * key = [[innerDictionary allKeys] objectAtIndex:0];
+    NSArray * jsonArray = [innerDictionary objectForKey:key];
     
 	if (! jsonArray) return nil;
     
@@ -155,6 +161,59 @@
 	}
 	return list;
 }
+
+- (NSObject *)decodeHibernateProxy{
+    NSLog(@"Found a proxy");
+    Class class = nil;    
+    id object = nil;
+    if([[[self topJsonObject] allKeys] containsObject:@"@class"]){
+        if([[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"set"]){
+//TODO handle            
+//            object = [self decodeSet];
+            
+        }else if ([[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"list"]){
+//TODO handle                        
+//            object = [self decodeList];
+            
+        }else if ([[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"sql-timestamp"] ||
+                  [[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"sql-time"] ||
+                  [[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"sql-date"]){
+            
+            object = [self decodeDate];
+        }
+    }
+    else {
+        object = [[class alloc] initWithCoder:self];
+    }
+
+    return object;
+}
+
+- (NSDate *) decodeDate{
+	NSString *jsonString = [[self topJsonObject] objectForKey:@"$"];
+	if (! jsonString) return nil;
+	
+	NSDateFormatter *dateFormatter = [NSDateFormatter new];
+	//we receive time in GMT zone
+	NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+	[dateFormatter setTimeZone:gmt];
+    
+	if([[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"sql-timestamp"]){
+		[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+	}else if([[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"sql-date"]){
+		[dateFormatter setDateFormat:@"yyyy-MM-dd"];		
+	}else{
+		[dateFormatter setDateFormat:@"HH:mm:ss"];
+	}
+    
+	int length = [jsonString length];
+	if(length > 2 && [[jsonString substringFromIndex:(length - 2)] isEqualToString:@".0"]){
+		jsonString = [jsonString substringToIndex:(length - 2)];
+	}
+    
+	return [dateFormatter dateFromString:jsonString];
+}
+
 
 - (NSObject *)decodeFoundationObject:(id) object{
     if([object isKindOfClass:[NSNumber class]]){

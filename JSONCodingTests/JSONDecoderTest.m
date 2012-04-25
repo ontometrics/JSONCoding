@@ -48,6 +48,13 @@
     assertThat(manager, notNilValue());
     assertThat([manager employees], containsInAnyOrder(hasProperty(@"name", @"Ann"),
                                                        hasProperty(@"name", @"Nick"), nil));
+
+    decoder = [[JSONDecoder alloc] initWithResponse:[JSONForManagerWithEmployeesWithClass dataUsingEncoding:NSUTF8StringEncoding]];
+    manager = [[Manager alloc] initWithCoder:decoder];    
+    assertThat(manager, notNilValue());
+    assertThat([manager employees], containsInAnyOrder(hasProperty(@"name", @"Ann"),
+                                                       hasProperty(@"name", @"Nick"), nil));
+
 }
 
 - (void) testCanDecodeSetsOfPrimitives{
@@ -69,6 +76,13 @@
     assertThat(manager, notNilValue());
     assertThat([manager nextMeetings], contains(hasProperty(@"description", startsWith(@"2012-04-20 00:05:00")), 
                                                 hasProperty(@"description", startsWith(@"2012-04-20 03:05:00")), nil));
+}
+
+-(void) testCanDecodeHibernateDate{
+    decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsHibernateDate dataUsingEncoding:NSUTF8StringEncoding]];
+    Person * person = [[Person alloc] initWithCoder:decoder];
+    assertThat(person, notNilValue());
+    assertThat(person, hasProperty(@"dateOfBirth", [NSDate dateWithTimeIntervalSince1970:0]));
 }
 
 @end
