@@ -406,6 +406,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SYMROOT = "$(PROJECT_DIR)/../build";
 			};
 			name = Debug;
 		};
@@ -418,6 +419,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SYMROOT = "$(PROJECT_DIR)/../build";
 			};
 			name = Release;
 		};
@@ -433,6 +435,7 @@
 				GCC_PREFIX_HEADER = "JSONCoding/JSONCoding-Prefix.pch";
 				INFOPLIST_FILE = "JSONCodingTests/JSONCodingTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "$(PROJECT_DIR)/../build";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -449,6 +452,7 @@
 				GCC_PREFIX_HEADER = "JSONCoding/JSONCoding-Prefix.pch";
 				INFOPLIST_FILE = "JSONCodingTests/JSONCodingTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "$(PROJECT_DIR)/../build";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

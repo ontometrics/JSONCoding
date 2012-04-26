@@ -8,6 +8,7 @@
 
 #import "JSONEncoder.h"
 #import "NSData+Base64.h"
+#import "NSString+Additions.h"
 
 @interface JSONEncoder ()
     
@@ -120,7 +121,8 @@
     [self push:object];
     [object encodeWithCoder:self];
     
-    finalJSONObject = [self topObject];
+    finalJSONObject = [NSDictionary dictionaryWithObject:[self topObject] forKey:[[[object class] description] camelcaseString]];
+    
     [self pop];
 }
 
@@ -210,7 +212,7 @@
     if(objectEncoding){
         [[self topObject] setObject:objectEncoding forKey:key];
     }
-    NSLog(@"stack %@", jsonObjectStack);
+//    NSLog(@"stack %@", jsonObjectStack);
 }
 
 @end

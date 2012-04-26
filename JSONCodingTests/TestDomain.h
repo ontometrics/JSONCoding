@@ -42,3 +42,14 @@
 #define JSONContainsHibernateDate @"{\"name\":\"Ann\",\"dateOfBirth\":{\"@class\":\"sql-timestamp\",\"$\":\"1970-01-01 00:00:00\"}}"
 #endif
 
+#ifndef JSONContainsHibernateProxy
+#define JSONContainsHibernateProxy @"{\"@class\":\"whatever_$$_javassist_58\",\"@resolves-to\":\"person\",\"name\":\"Ann\"}"
+#endif
+
+#ifndef JSONContainsListOfStrings
+#define JSONContainsListOfStrings @"{\"list\":[{\"string\":\"XXX\"}]}"
+#endif
+
+#ifndef JSONContainsListOfStrings2
+#define JSONContainsListOfStrings2 @"{\"list\":[{\"string\":[\"XXX\", \"YYY\", \"ZZZ\"]}]}"
+#endif

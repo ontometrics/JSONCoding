@@ -65,7 +65,7 @@
     assertThat([employee skills], containsInAnyOrder(@"XX", @"YY", nil));
 }
 
-- (void) testCanDecodeArrays{
+- (void) testCanDecodeArrayOfObjects{
     decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsArrayOfStrings dataUsingEncoding:NSUTF8StringEncoding]];
     Employee * employee = [[Employee alloc] initWithCoder:decoder];
     assertThat(employee, notNilValue());
@@ -78,11 +78,30 @@
                                                 hasProperty(@"description", startsWith(@"2012-04-20 03:05:00")), nil));
 }
 
--(void) testCanDecodeHibernateDate{
+
+- (void) testCanDecodeArrayOfStrings{
+    decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsListOfStrings dataUsingEncoding:NSUTF8StringEncoding]];
+    NSArray * result = [decoder decodeObjectForKey:@"list"];
+    assertThat(result, notNilValue());
+    assertThat(result, contains(@"XXX", nil));
+    
+    decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsListOfStrings2 dataUsingEncoding:NSUTF8StringEncoding]];
+    result = [decoder decodeObjectForKey:@"list"];
+    assertThat(result, notNilValue());
+    assertThat(result, contains(@"XXX", @"YYY", @"ZZZ", nil));
+}
+
+-(void) testCanDecodeHibernateObjects{
     decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsHibernateDate dataUsingEncoding:NSUTF8StringEncoding]];
     Person * person = [[Person alloc] initWithCoder:decoder];
     assertThat(person, notNilValue());
     assertThat(person, hasProperty(@"dateOfBirth", [NSDate dateWithTimeIntervalSince1970:0]));
+    
+    decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsHibernateProxy dataUsingEncoding:NSUTF8StringEncoding]];
+    person = [[Person alloc] initWithCoder:decoder];
+    assertThat(person, notNilValue());
+    assertThat(person, hasProperty(@"name", is(@"Ann")));
+
 }
 
 @end

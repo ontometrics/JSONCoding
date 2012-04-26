@@ -3,3 +3,5 @@ JSONCoding.xcodeproj/xcuserdata/nourahassan.xcuserdatad/xcdebugger/Breakpoints.x
 JSONCoding.xcodeproj/xcuserdata/nourahassan.xcuserdatad/xcschemes/JSONCoding.xcscheme
 JSONCoding.xcodeproj/xcuserdata/nourahassan.xcuserdatad/xcschemes/JSONCodingTests.xcscheme
 JSONCoding.xcodeproj/xcuserdata/nourahassan.xcuserdatad/xcschemes/xcschememanagement.plist
+.DS_Store
+build/

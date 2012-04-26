@@ -98,6 +98,12 @@
 	return object;
 }
 
+- (int)decodeIntForKey:(NSString *)key {
+    //check, if hibernate can send a wrong format
+    NSDecimalNumber * value = [[self topJsonObject] objectForKey:key];
+	return [value intValue];
+}
+
 - (double)decodeDoubleForKey:(NSString *)key {
 	NSDecimalNumber *doubleStr = [[self topJsonObject] valueForKey:key];
 	return [doubleStr doubleValue];
@@ -156,14 +162,14 @@
 	for (id jsonObject in jsonArray) {
 		
 		id object = [self decodeFoundationObject:jsonObject];
-		
-		[list addObject:object];
+		if(object != nil){
+            [list addObject:object];
+        }
 	}
 	return list;
 }
 
 - (NSObject *)decodeHibernateProxy{
-    NSLog(@"Found a proxy");
     Class class = nil;    
     id object = nil;
     if([[[self topJsonObject] allKeys] containsObject:@"@class"]){
@@ -179,13 +185,13 @@
                   [[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"sql-time"] ||
                   [[[self topJsonObject] objectForKey:@"@class"] isEqualToString:@"sql-date"]){
             
-            object = [self decodeDate];
+            return [self decodeDate];
         }
     }
-    else {
-        object = [[class alloc] initWithCoder:self];
-    }
 
+    NSString * resolvesToClassName = [[self topJsonObject] objectForKey:@"@resolves-to"];
+    class = [self getClassForKey:resolvesToClassName];
+    object = [[class alloc] initWithCoder:self];
     return object;
 }
 
@@ -222,6 +228,8 @@
     
     if([object isKindOfClass:[NSString class]]){
         NSString * stringValue = (NSString *) object;
+        
+        if(![stringValue length]) return nil;
         if([stringValue hasSuffix:@"="]){
             //NSData
             return [NSData dataFromBase64String:stringValue];
