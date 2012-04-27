@@ -191,6 +191,10 @@
 
     NSString * resolvesToClassName = [[self topJsonObject] objectForKey:@"@resolves-to"];
     class = [self getClassForKey:resolvesToClassName];
+    if(class == nil){
+        NSString * className = [[self topJsonObject] objectForKey:@"@class"];
+        class = [self getClassForKey:className];
+    }
     object = [[class alloc] initWithCoder:self];
     return object;
 }
