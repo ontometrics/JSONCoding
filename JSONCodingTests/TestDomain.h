@@ -33,3 +33,23 @@
 #ifndef JSONForManagerWithEmployees
 #define JSONForManagerWithEmployees @"{\"name\":\"Joe\",\"employees\":[{\"nationalID\":12345678900008,\"name\":\"Ann\",\"title\":\"HR Manager\",\"resume\":\"ZW1wbG95ZWUgcmVzdW1lIC4uLi4=\",\"dateOfBirth\":\"1970-01-01 00:00:00 GMT\"},{\"nationalID\":30045678900008,\"name\":\"Nick\",\"dateOfBirth\":\"1984-12-28 00:00:00 GMT\"}]}"
 #endif
+
+#ifndef JSONForManagerWithEmployeesWithClass
+#define JSONForManagerWithEmployeesWithClass @"{\"name\":\"Joe\",\"employees\":[{\"employee\":[{\"nationalID\":12345678900008,\"name\":\"Ann\",\"title\":\"HR Manager\",\"resume\":\"ZW1wbG95ZWUgcmVzdW1lIC4uLi4=\",\"dateOfBirth\":\"1970-01-01 00:00:00 GMT\"},{\"nationalID\":30045678900008,\"name\":\"Nick\",\"dateOfBirth\":\"1984-12-28 00:00:00 GMT\"}]}]}"
+#endif
+
+#ifndef JSONContainsHibernateDate
+#define JSONContainsHibernateDate @"{\"name\":\"Ann\",\"dateOfBirth\":{\"@class\":\"sql-timestamp\",\"$\":\"1970-01-01 00:00:00\"}}"
+#endif
+
+#ifndef JSONContainsHibernateProxy
+#define JSONContainsHibernateProxy @"{\"@class\":\"whatever_$$_javassist_58\",\"@resolves-to\":\"person\",\"name\":\"Ann\"}"
+#endif
+
+#ifndef JSONContainsListOfStrings
+#define JSONContainsListOfStrings @"{\"list\":[{\"string\":\"XXX\"}]}"
+#endif
+
+#ifndef JSONContainsListOfStrings2
+#define JSONContainsListOfStrings2 @"{\"list\":[{\"string\":[\"XXX\", \"YYY\", \"ZZZ\"]}]}"
+#endif
