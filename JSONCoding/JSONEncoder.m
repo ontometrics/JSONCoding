@@ -26,6 +26,7 @@
 @end
     
 @implementation JSONEncoder{
+    //private properties
     NSMutableArray*			objectStack;
     NSMutableArray*			jsonObjectStack;    
     NSMutableDictionary*	suppressedKeys;
@@ -33,10 +34,16 @@
 
 }
 
+//
+// return instance of the JSONEncoder
+//
 + (id)encoder {
 	return [JSONEncoder new];
 }
 
+//
+// return the created JSON representation
+//
 - (NSString *) json{
     NSError * error;
     NSData * data = [NSJSONSerialization dataWithJSONObject:finalJSONObject
@@ -174,6 +181,9 @@
 
 }
 
+//
+// date is encoding using the full format and using the GMT time zone.
+//
 - (NSObject *) getEncodingForDate:(NSDate *)date{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm':00' z";
@@ -217,6 +227,7 @@
             }else{
                 className = [[[(NSSet *) object anyObject] class] description];
             }
+            //if type of objects in the array is a custom type, will add the type name in the json string 
             if(![[className substringToIndex:2] isEqualToString:@"NS"] || 
                ![[className substringToIndex:2] isEqualToString:@"__"]){
                 
