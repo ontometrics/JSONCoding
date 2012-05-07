@@ -99,7 +99,7 @@
 }
 
 - (int)decodeIntForKey:(NSString *)key {
-    //check, if hibernate can send a wrong format
+    //TODO check, if hibernate can send a wrong format
     NSDecimalNumber * value = [[self topJsonObject] objectForKey:key];
 	return [value intValue];
 }

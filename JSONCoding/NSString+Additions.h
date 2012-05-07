@@ -1,6 +1,6 @@
 //
 //  NSString+Additions.h
-//  dishapedia
+//  Additions
 //
 //  Created by Noura Hassan on 7/2/10.
 //  Copyright 2010 Ontometrics. All rights reserved.

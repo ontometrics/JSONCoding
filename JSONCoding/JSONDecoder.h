@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Ontometrics. All rights reserved.
 //
 
+// decode object from a JSON representation
+
 #import <Foundation/Foundation.h>
 
 @interface JSONDecoder : NSCoder
