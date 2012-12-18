@@ -248,6 +248,7 @@
 	}
     return nil; //object is a user class
 }
+
 - (void)pushObject:(id)jsonObject withId:(NSString *)jsonObjectId {
 	[jsonObjectStack addObject:jsonObject];
 	[objectIDStack addObject:jsonObjectId];
@@ -261,9 +262,11 @@
 - (NSDictionary *)topJsonObject {
 	return [jsonObjectStack lastObject];
 }
+
 - (NSString *)topJsonObjectId {
 	return [objectIDStack lastObject];
 }
+
 - (Class) getClassForKey:(NSString *) key{
 	if([[mappingClasses allKeys] containsObject:key]){
 		return [mappingClasses objectForKey:key];
