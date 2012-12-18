@@ -32,6 +32,18 @@
 		ACE937CE153F687A007A3E67 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937CC153F687A007A3E67 /* NSData+Base64.m */; };
 		ACE937CF153F690E007A3E67 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937CC153F687A007A3E67 /* NSData+Base64.m */; };
 		ACE937D2153F6C39007A3E67 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937D1153F6C39007A3E67 /* Manager.m */; };
+		AF1C05DD16804087005A5186 /* ActiveSupportInflector.h in Headers */ = {isa = PBXBuildFile; fileRef = AF1C05D416804087005A5186 /* ActiveSupportInflector.h */; };
+		AF1C05DE16804087005A5186 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05D516804087005A5186 /* ActiveSupportInflector.m */; };
+		AF1C05DF16804087005A5186 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05D516804087005A5186 /* ActiveSupportInflector.m */; };
+		AF1C05E016804087005A5186 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF1C05D616804087005A5186 /* ActiveSupportInflector.plist */; };
+		AF1C05E216804087005A5186 /* ActiveSupportInflectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05D716804087005A5186 /* ActiveSupportInflectorTest.m */; };
+		AF1C05E316804087005A5186 /* ActiveSupportInflectorTest.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF1C05D816804087005A5186 /* ActiveSupportInflectorTest.plist */; };
+		AF1C05E416804087005A5186 /* MIT-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AF1C05D916804087005A5186 /* MIT-LICENSE */; };
+		AF1C05E516804087005A5186 /* NSString+ActiveSupportInflector.h in Headers */ = {isa = PBXBuildFile; fileRef = AF1C05DA16804087005A5186 /* NSString+ActiveSupportInflector.h */; };
+		AF1C05E616804087005A5186 /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05DB16804087005A5186 /* NSString+ActiveSupportInflector.m */; };
+		AF1C05E716804087005A5186 /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05DB16804087005A5186 /* NSString+ActiveSupportInflector.m */; };
+		AF1C05E816804087005A5186 /* Readme.markdown in Resources */ = {isa = PBXBuildFile; fileRef = AF1C05DC16804087005A5186 /* Readme.markdown */; };
+		AF62FC2F168052C1001C38D9 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF1C05D616804087005A5186 /* ActiveSupportInflector.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +85,15 @@
 		ACE937CC153F687A007A3E67 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		ACE937D0153F6C39007A3E67 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
 		ACE937D1153F6C39007A3E67 /* Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manager.m; sourceTree = "<group>"; };
+		AF1C05D416804087005A5186 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveSupportInflector.h; sourceTree = "<group>"; };
+		AF1C05D516804087005A5186 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveSupportInflector.m; sourceTree = "<group>"; };
+		AF1C05D616804087005A5186 /* ActiveSupportInflector.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ActiveSupportInflector.plist; sourceTree = "<group>"; };
+		AF1C05D716804087005A5186 /* ActiveSupportInflectorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveSupportInflectorTest.m; sourceTree = "<group>"; };
+		AF1C05D816804087005A5186 /* ActiveSupportInflectorTest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ActiveSupportInflectorTest.plist; sourceTree = "<group>"; };
+		AF1C05D916804087005A5186 /* MIT-LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE"; sourceTree = "<group>"; };
+		AF1C05DA16804087005A5186 /* NSString+ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ActiveSupportInflector.h"; sourceTree = "<group>"; };
+		AF1C05DB16804087005A5186 /* NSString+ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ActiveSupportInflector.m"; sourceTree = "<group>"; };
+		AF1C05DC16804087005A5186 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +137,7 @@
 		AC0E9A7E153F4FAD003D3AE0 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				AF1C05D316804057005A5186 /* ActiveSupportInflector */,
 				AC0E9A7F153F4FC4003D3AE0 /* OCHamcrestIOS.framework */,
 			);
 			name = ThirdParty;
@@ -197,6 +219,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AF1C05D316804057005A5186 /* ActiveSupportInflector */ = {
+			isa = PBXGroup;
+			children = (
+				AF1C05D416804087005A5186 /* ActiveSupportInflector.h */,
+				AF1C05D516804087005A5186 /* ActiveSupportInflector.m */,
+				AF1C05D716804087005A5186 /* ActiveSupportInflectorTest.m */,
+				AF1C05D616804087005A5186 /* ActiveSupportInflector.plist */,
+				AF1C05D916804087005A5186 /* MIT-LICENSE */,
+				AF1C05D816804087005A5186 /* ActiveSupportInflectorTest.plist */,
+				AF1C05DA16804087005A5186 /* NSString+ActiveSupportInflector.h */,
+				AF1C05DB16804087005A5186 /* NSString+ActiveSupportInflector.m */,
+				AF1C05DC16804087005A5186 /* Readme.markdown */,
+			);
+			name = ActiveSupportInflector;
+			path = JSONCoding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -208,6 +247,8 @@
 				ACE937CD153F687A007A3E67 /* NSData+Base64.h in Headers */,
 				ACD142FE1540B62300464304 /* JSONDecoder.h in Headers */,
 				ACD143071540C62900464304 /* NSString+Additions.h in Headers */,
+				AF1C05DD16804087005A5186 /* ActiveSupportInflector.h in Headers */,
+				AF1C05E516804087005A5186 /* NSString+ActiveSupportInflector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +259,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC8E4ACE153F13B1009044BF /* Build configuration list for PBXNativeTarget "JSONCoding" */;
 			buildPhases = (
+				AF62FC29168050DD001C38D9 /* Resources */,
 				AC8E4AA6153F13B1009044BF /* Sources */,
 				AC8E4AA7153F13B1009044BF /* Frameworks */,
 				AC8E4AA8153F13B1009044BF /* Headers */,
@@ -283,6 +325,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC8E4AC8153F13B1009044BF /* InfoPlist.strings in Resources */,
+				AF1C05E016804087005A5186 /* ActiveSupportInflector.plist in Resources */,
+				AF1C05E316804087005A5186 /* ActiveSupportInflectorTest.plist in Resources */,
+				AF1C05E416804087005A5186 /* MIT-LICENSE in Resources */,
+				AF1C05E816804087005A5186 /* Readme.markdown in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF62FC29168050DD001C38D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF62FC2F168052C1001C38D9 /* ActiveSupportInflector.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +367,8 @@
 				ACE937CE153F687A007A3E67 /* NSData+Base64.m in Sources */,
 				ACD142FF1540B62300464304 /* JSONDecoder.m in Sources */,
 				ACD143081540C62900464304 /* NSString+Additions.m in Sources */,
+				AF1C05DE16804087005A5186 /* ActiveSupportInflector.m in Sources */,
+				AF1C05E616804087005A5186 /* NSString+ActiveSupportInflector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +386,9 @@
 				ACD143001540B62300464304 /* JSONDecoder.m in Sources */,
 				ACD143041540B86E00464304 /* JSONDecoderTest.m in Sources */,
 				ACD143091540C62900464304 /* NSString+Additions.m in Sources */,
+				AF1C05DF16804087005A5186 /* ActiveSupportInflector.m in Sources */,
+				AF1C05E216804087005A5186 /* ActiveSupportInflectorTest.m in Sources */,
+				AF1C05E716804087005A5186 /* NSString+ActiveSupportInflector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "JSONDecoder.h"
 #import "NSData+Base64.h"
 #import "NSString+Additions.h"
+#import "NSString+ActiveSupportInflector.h"
 
 @interface JSONDecoder()
 
@@ -136,7 +137,7 @@
 		jsonArray = [NSArray arrayWithObject:jsonArray];
 	}
     
-    NSString * objectClass = [self topJsonObjectId];
+    NSString * objectClass = [[self topJsonObjectId] singularizeString];
     if([self getClassForKey:objectClass] == nil){
         NSLog(@"Change arrays class from %@ to %@", objectClass, key);
         objectClass = key;
