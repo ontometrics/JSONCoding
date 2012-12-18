@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AC0E9A72153F4A19003D3AE0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A71153F4A19003D3AE0 /* Person.m */; };
 		AC0E9A75153F4C4E003D3AE0 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A74153F4C4E003D3AE0 /* Employee.m */; };
-		AC0E9A78153F4D22003D3AE0 /* JSONEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AC0E9A76153F4D22003D3AE0 /* JSONEncoder.h */; };
+		AC0E9A78153F4D22003D3AE0 /* JSONEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AC0E9A76153F4D22003D3AE0 /* JSONEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC0E9A79153F4D22003D3AE0 /* JSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */; };
 		AC0E9A7A153F4D22003D3AE0 /* JSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */; };
 		AC0E9A7D153F4F16003D3AE0 /* BaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A7C153F4F16003D3AE0 /* BaseTestCase.m */; };
@@ -20,15 +20,15 @@
 		AC8E4ABF153F13B1009044BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAD153F13B1009044BF /* Foundation.framework */; };
 		AC8E4AC2153F13B1009044BF /* libJSONCoding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAA153F13B1009044BF /* libJSONCoding.a */; };
 		AC8E4AC8153F13B1009044BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC8E4AC6153F13B1009044BF /* InfoPlist.strings */; };
-		ACD142FE1540B62300464304 /* JSONDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD142FC1540B62300464304 /* JSONDecoder.h */; };
+		ACD142FE1540B62300464304 /* JSONDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD142FC1540B62300464304 /* JSONDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACD142FF1540B62300464304 /* JSONDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD142FD1540B62300464304 /* JSONDecoder.m */; };
 		ACD143001540B62300464304 /* JSONDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD142FD1540B62300464304 /* JSONDecoder.m */; };
 		ACD143041540B86E00464304 /* JSONDecoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD143031540B86E00464304 /* JSONDecoderTest.m */; };
-		ACD143071540C62900464304 /* NSString+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD143051540C62900464304 /* NSString+Additions.h */; };
+		ACD143071540C62900464304 /* NSString+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD143051540C62900464304 /* NSString+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACD143081540C62900464304 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD143061540C62900464304 /* NSString+Additions.m */; };
 		ACD143091540C62900464304 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD143061540C62900464304 /* NSString+Additions.m */; };
 		ACE937C7153F506D007A3E67 /* JSONEncoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937C6153F506D007A3E67 /* JSONEncoderTest.m */; };
-		ACE937CD153F687A007A3E67 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = ACE937CB153F687A007A3E67 /* NSData+Base64.h */; };
+		ACE937CD153F687A007A3E67 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = ACE937CB153F687A007A3E67 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACE937CE153F687A007A3E67 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937CC153F687A007A3E67 /* NSData+Base64.m */; };
 		ACE937CF153F690E007A3E67 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937CC153F687A007A3E67 /* NSData+Base64.m */; };
 		ACE937D2153F6C39007A3E67 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937D1153F6C39007A3E67 /* Manager.m */; };
@@ -465,7 +465,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SYMROOT = "$(PROJECT_DIR)/../build";
+				SYMROOT = "${PROJECT_DIR}/../builds";
 			};
 			name = Debug;
 		};
@@ -478,7 +478,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SYMROOT = "$(PROJECT_DIR)/../build";
+				SYMROOT = "${PROJECT_DIR}/../builds";
 			};
 			name = Release;
 		};

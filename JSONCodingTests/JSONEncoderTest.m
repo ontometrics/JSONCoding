@@ -30,7 +30,7 @@
     [employee setNationalID:[NSNumber numberWithDouble:12345678900008]];
     [employee setTitle:@"HR Manager"];
     [employee setDateOfBirth:[NSDate dateWithTimeIntervalSince1970:0]];
-    [employee setResume:[[NSString stringWithString:@"employee resume ...."] dataUsingEncoding:NSUTF8StringEncoding]];
+    [employee setResume:[@"employee resume ...." dataUsingEncoding:NSUTF8StringEncoding]];
     
     employee2 = [Employee new];
     [employee2 setName:@"Nick"];
