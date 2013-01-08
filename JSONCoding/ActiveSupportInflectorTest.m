@@ -5,6 +5,8 @@
 
 #import "NSString+ActiveSupportInflector.h"
 #import <SenTestingKit/SenTestingKit.h>
+#define HC_SHORTHAND
+#import <OCHamcrestIOS/OCHamcrestIOS.h>
 
 @interface ActiveSupportInflectorTest : SenTestCase
 @end

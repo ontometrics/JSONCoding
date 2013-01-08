@@ -228,7 +228,7 @@
                 className = [[[(NSSet *) object anyObject] class] description];
             }
             //if type of objects in the array is a custom type, will add the type name in the json string 
-            if(![[className substringToIndex:2] isEqualToString:@"NS"] || 
+            if(![[className substringToIndex:2] isEqualToString:@"NS"] &&
                ![[className substringToIndex:2] isEqualToString:@"__"]){
                 
                 NSDictionary * dictionary = [NSDictionary dictionaryWithObject:objectEncoding forKey:[className camelcaseString]];
