@@ -114,6 +114,10 @@
     NSDictionary * innerDictionary = nil;    
 
 	if([[self topJsonObject] isKindOfClass:[NSArray class]]){
+        NSArray *theArray = (NSArray *) [self topJsonObject];
+        if ([theArray count] == 0)
+            return [NSArray new];
+        
         innerDictionary = [(NSArray *)[self topJsonObject] objectAtIndex:0];
         
         if(![innerDictionary isKindOfClass:[NSDictionary class]]){

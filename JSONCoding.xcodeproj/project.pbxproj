@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0261EF9F16B4D6A90055E34F /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0261EF9E16B4D6A90055E34F /* OCHamcrestIOS.framework */; };
 		AC0E9A72153F4A19003D3AE0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A71153F4A19003D3AE0 /* Person.m */; };
 		AC0E9A75153F4C4E003D3AE0 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A74153F4C4E003D3AE0 /* Employee.m */; };
 		AC0E9A78153F4D22003D3AE0 /* JSONEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AC0E9A76153F4D22003D3AE0 /* JSONEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC0E9A79153F4D22003D3AE0 /* JSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */; };
 		AC0E9A7A153F4D22003D3AE0 /* JSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */; };
 		AC0E9A7D153F4F16003D3AE0 /* BaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A7C153F4F16003D3AE0 /* BaseTestCase.m */; };
-		AC0E9A80153F4FC4003D3AE0 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E9A7F153F4FC4003D3AE0 /* OCHamcrestIOS.framework */; };
 		AC8E4AAE153F13B1009044BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAD153F13B1009044BF /* Foundation.framework */; };
 		AC8E4ABC153F13B1009044BF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4ABB153F13B1009044BF /* SenTestingKit.framework */; };
-		AC8E4ABE153F13B1009044BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4ABD153F13B1009044BF /* UIKit.framework */; };
 		AC8E4ABF153F13B1009044BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAD153F13B1009044BF /* Foundation.framework */; };
 		AC8E4AC2153F13B1009044BF /* libJSONCoding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAA153F13B1009044BF /* libJSONCoding.a */; };
 		AC8E4AC8153F13B1009044BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC8E4AC6153F13B1009044BF /* InfoPlist.strings */; };
@@ -57,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0261EF9E16B4D6A90055E34F /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		AC0E9A70153F4A19003D3AE0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		AC0E9A71153F4A19003D3AE0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		AC0E9A73153F4C4E003D3AE0 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
@@ -65,7 +65,6 @@
 		AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONEncoder.m; sourceTree = "<group>"; };
 		AC0E9A7B153F4F16003D3AE0 /* BaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestCase.h; sourceTree = "<group>"; };
 		AC0E9A7C153F4F16003D3AE0 /* BaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestCase.m; sourceTree = "<group>"; };
-		AC0E9A7F153F4FC4003D3AE0 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ThirdParty/OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		AC8E4AAA153F13B1009044BF /* libJSONCoding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSONCoding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8E4AAD153F13B1009044BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC8E4AB1153F13B1009044BF /* JSONCoding-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSONCoding-Prefix.pch"; sourceTree = "<group>"; };
@@ -110,10 +109,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC8E4ABC153F13B1009044BF /* SenTestingKit.framework in Frameworks */,
-				AC8E4ABE153F13B1009044BF /* UIKit.framework in Frameworks */,
 				AC8E4ABF153F13B1009044BF /* Foundation.framework in Frameworks */,
 				AC8E4AC2153F13B1009044BF /* libJSONCoding.a in Frameworks */,
-				AC0E9A80153F4FC4003D3AE0 /* OCHamcrestIOS.framework in Frameworks */,
+				0261EF9F16B4D6A90055E34F /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +135,8 @@
 		AC0E9A7E153F4FAD003D3AE0 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				0261EF9E16B4D6A90055E34F /* OCHamcrestIOS.framework */,
 				AF1C05D316804057005A5186 /* ActiveSupportInflector */,
-				AC0E9A7F153F4FC4003D3AE0 /* OCHamcrestIOS.framework */,
 			);
 			name = ThirdParty;
 			sourceTree = "<group>";
@@ -489,12 +487,15 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)/ThirdParty\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONCoding/JSONCoding-Prefix.pch";
 				INFOPLIST_FILE = "JSONCodingTests/JSONCodingTests-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = "$(PROJECT_DIR)/../build";
+				SYMROOT = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -506,12 +507,15 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)/ThirdParty\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONCoding/JSONCoding-Prefix.pch";
 				INFOPLIST_FILE = "JSONCodingTests/JSONCodingTests-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = "$(PROJECT_DIR)/../build";
+				SYMROOT = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

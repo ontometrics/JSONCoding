@@ -36,6 +36,14 @@
                BlueprintName = "JSONCodingTests"
                ReferencedContainer = "container:JSONCoding.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "BaseTestCase">
+               </Test>
+               <Test
+                  Identifier = "JSONEncoderTest">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

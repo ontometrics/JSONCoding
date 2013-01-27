@@ -10,6 +10,10 @@
 #import "Employee.h"
 #import "Manager.h"
 
+#ifndef EmptyArrayJSON
+#define EmptyArrayJSON @"{\"E\":0,\"D\":\"{\"emptyArray\":[]}\"}"
+#endif
+
 #ifndef SimpleJSON
 #define SimpleJSON @"{\"nationalID\":12345678900008,\"name\":\"Ann\",\"title\":\"HR Manager\",\"resume\":\"ZW1wbG95ZWUgcmVzdW1lIC4uLi4=\",\"dateOfBirth\":\"1970-01-01 00:00:00 GMT\"}"
 #endif
@@ -45,6 +49,11 @@
 #ifndef JSONContainsHibernateProxy
 #define JSONContainsHibernateProxy @"{\"@class\":\"whatever_$$_javassist_58\",\"@resolves-to\":\"person\",\"name\":\"Ann\"}"
 #endif
+
+#ifndef JSONContainsEmptyList
+#define JSONContainsEmptyList @"{\"list\":[]}"
+#endif
+
 
 #ifndef JSONContainsListOfStrings
 #define JSONContainsListOfStrings @"{\"list\":[{\"string\":\"XXX\"}]}"

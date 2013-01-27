@@ -78,6 +78,13 @@
                                                 hasProperty(@"description", startsWith(@"2012-04-20 03:05:00")), nil));
 }
 
+-(void)testCanDecodeEmptyArray {
+    decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsEmptyList dataUsingEncoding:NSUTF8StringEncoding]];
+    NSArray *result = [decoder decodeObjectForKey:@"list"];
+    
+    assertThat(result, notNilValue());
+}
+
 
 - (void) testCanDecodeArrayOfStrings{
     decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsListOfStrings dataUsingEncoding:NSUTF8StringEncoding]];
