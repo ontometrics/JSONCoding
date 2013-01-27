@@ -62,3 +62,9 @@
 #ifndef JSONContainsListOfStrings2
 #define JSONContainsListOfStrings2 @"{\"list\":[{\"string\":[\"XXX\", \"YYY\", \"ZZZ\"]}]}"
 #endif
+
+#ifndef JSONContainsListOfDictionaries
+#define JSONContainsListOfDictionaries @"{\"list\":[{\"id\":30},{\"id\":\"asd\"},{\"id\":40,\"name\":\"Joe\"}]}"
+#endif
+
+

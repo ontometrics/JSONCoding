@@ -23,6 +23,7 @@
 - (NSDictionary *)topJsonObject;
 - (NSString *)topJsonObjectId;
 - (Class) getClassForKey:(NSString *) key;
+- (BOOL) isObjectForUnknownClass:(NSDictionary *) dictionary;
 
 @end
 
@@ -58,13 +59,16 @@
 
 - (id)decodeObject {
     Class class = [self getClassForKey:[self topJsonObjectId]];
-    
 	id object = nil;
     if([[self topJsonObject] isKindOfClass:[NSDictionary class]] &&
        [[[self topJsonObject] allKeys] containsObject:@"@class"]){
+            object = [self decodeHibernateProxy];
         
-        object = [self decodeHibernateProxy];
-        
+    }else if([[self topJsonObject] isKindOfClass:[NSDictionary class]] && [[self topJsonObjectId] isEqualToString:@"object"]){
+        //this when we have a dictionary, that has no class name attached before it
+        //return the dictionary
+        return [self topJsonObject];
+
     }else if ([class isSubclassOfClass:[NSNull class]]) {
 		
         object = nil;
@@ -72,7 +76,7 @@
 	} else if([[self topJsonObject] isKindOfClass:[NSArray class]]){
         
 		object = [self decodeArrayOfClass:class];
-        
+
 	}else if([[self topJsonObject] isKindOfClass:[NSString class]]){
         
 		object = [self topJsonObject];
@@ -85,6 +89,7 @@
 }
 
 - (id)decodeObjectForKey:(NSString *)key {
+    
 	id object = [[self topJsonObject] objectForKey:key];
 	if(!object) return nil;
     
@@ -123,7 +128,9 @@
         if(![innerDictionary isKindOfClass:[NSDictionary class]]){
             return [self decodeArrayOfPrimitives];
         }
-        if([[innerDictionary allKeys] count] > 1){
+
+        //if it is a dictionary with only one key, it can be an array of a one primitive object like ["xxx"]
+        if([[innerDictionary allKeys] count] > 1 || (class == nil && [self isObjectForUnknownClass:innerDictionary])){
             innerDictionary = [NSDictionary dictionaryWithObject:[self topJsonObject] forKey:@"object"];
         }
         
@@ -277,6 +284,14 @@
 		return [mappingClasses objectForKey:key];
 	}
 	return NSClassFromString([key capitalizeFirstLetterString]);
+}
+
+- (BOOL) isObjectForUnknownClass:(NSDictionary *) dictionary{
+    if([[dictionary allKeys] count] > 1) return NO;
+    NSString * key = [[dictionary allKeys] objectAtIndex:0];
+    //Here we should add reserved words, words used by NSJSONSerialization to represent primitive types
+    if([@"string" isEqualToString:key]) return NO;    
+    return [self getClassForKey:key] == nil;
 }
 
 @end

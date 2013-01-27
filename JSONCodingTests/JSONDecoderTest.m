@@ -98,6 +98,18 @@
     assertThat(result, contains(@"XXX", @"YYY", @"ZZZ", nil));
 }
 
+- (void) testCanDecodeArrayOfDictionaries{
+    decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsListOfDictionaries dataUsingEncoding:NSUTF8StringEncoding]];
+    NSArray * result = [decoder decodeObjectForKey:@"list"];
+    
+    assertThatInt([result count], is(@3));
+    NSArray * expectedArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObject:@30 forKey:@"id"],
+                           [NSDictionary dictionaryWithObject:@"asd" forKey:@"id"],
+                           [NSDictionary dictionaryWithObjectsAndKeys:@40, @"id", @"Joe", @"name", nil], nil];
+    
+    assertThat(result, is(expectedArray));
+}
+
 -(void) testCanDecodeHibernateObjects{
     decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsHibernateDate dataUsingEncoding:NSUTF8StringEncoding]];
     Person * person = [[Person alloc] initWithCoder:decoder];
