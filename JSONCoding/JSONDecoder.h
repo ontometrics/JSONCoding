@@ -12,6 +12,7 @@
 
 @interface JSONDecoder : NSCoder
 
++ (id) decodeWithData:(NSData*) JSON;
 - (id) initWithResponse:(NSData *) response;
 - (void) addAlias:(NSString *) alias forClass:(Class) aClass; 
 @end
