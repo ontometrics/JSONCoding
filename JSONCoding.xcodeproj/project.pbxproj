@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0261EF9F16B4D6A90055E34F /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0261EF9E16B4D6A90055E34F /* OCHamcrestIOS.framework */; };
+		AC0221701718B546005E6AC7 /* CodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02216F1718B546005E6AC7 /* CodingTest.m */; };
 		AC0E9A72153F4A19003D3AE0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A71153F4A19003D3AE0 /* Person.m */; };
 		AC0E9A75153F4C4E003D3AE0 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A74153F4C4E003D3AE0 /* Employee.m */; };
 		AC0E9A78153F4D22003D3AE0 /* JSONEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AC0E9A76153F4D22003D3AE0 /* JSONEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		0261EF9E16B4D6A90055E34F /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		AC02216F1718B546005E6AC7 /* CodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodingTest.m; sourceTree = "<group>"; };
 		AC0E9A70153F4A19003D3AE0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		AC0E9A71153F4A19003D3AE0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		AC0E9A73153F4C4E003D3AE0 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				AC0E9A7C153F4F16003D3AE0 /* BaseTestCase.m */,
 				ACE937C6153F506D007A3E67 /* JSONEncoderTest.m */,
 				ACD143031540B86E00464304 /* JSONDecoderTest.m */,
+				AC02216F1718B546005E6AC7 /* CodingTest.m */,
 				AC8E4AC4153F13B1009044BF /* Supporting Files */,
 			);
 			path = JSONCodingTests;
@@ -387,6 +390,7 @@
 				AF1C05DF16804087005A5186 /* ActiveSupportInflector.m in Sources */,
 				AF1C05E216804087005A5186 /* ActiveSupportInflectorTest.m in Sources */,
 				AF1C05E716804087005A5186 /* NSString+ActiveSupportInflector.m in Sources */,
+				AC0221701718B546005E6AC7 /* CodingTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +499,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = "";
+				SYMROOT = "${PROJECT_DIR}/../builds";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -515,7 +519,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = "";
+				SYMROOT = "${PROJECT_DIR}/../builds";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
