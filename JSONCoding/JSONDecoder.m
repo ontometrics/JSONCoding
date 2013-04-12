@@ -33,6 +33,12 @@
     NSMutableDictionary * mappingClasses;
 }
 
+
++ (id) decodeWithData:(NSData *) json {
+    JSONDecoder* decoder = [[JSONDecoder alloc] initWithResponse:json];
+    return [decoder decodeObject];
+}
+
 - (id) initWithResponse:(NSData *) response{
     self = [self init];
     if(self){
@@ -58,6 +64,16 @@
 }
 
 - (id)decodeObject {
+    if ([[self topJsonObjectId] isEqualToString:@"root"]) {
+        NSDictionary* rootDict = [self topJsonObject];
+    
+        [self pop];
+        
+        NSArray* keys = [rootDict allKeys];
+        NSString* rootKey = keys[0];
+        [self pushObject:[rootDict valueForKey:rootKey] withId:rootKey];
+    }
+
     Class class = [self getClassForKey:[self topJsonObjectId]];
 	id object = nil;
     if([[self topJsonObject] isKindOfClass:[NSDictionary class]] &&
@@ -104,6 +120,10 @@
 	return object;
 }
 
+- (BOOL)decodeBoolForKey:(NSString *)key {;
+    return [[[self topJsonObject] objectForKey:key] boolValue];
+}
+
 - (int)decodeIntForKey:(NSString *)key {
     //TODO check, if hibernate can send a wrong format
     NSDecimalNumber * value = [[self topJsonObject] objectForKey:key];
@@ -113,6 +133,11 @@
 - (double)decodeDoubleForKey:(NSString *)key {
 	NSDecimalNumber *doubleStr = [[self topJsonObject] valueForKey:key];
 	return [doubleStr doubleValue];
+}
+
+- (float)decodeFloatForKey:(NSString *)key {
+    NSDecimalNumber *floatStr = [[self topJsonObject] valueForKey:key];
+    return [floatStr floatValue];
 }
 
 - (NSArray *)decodeArrayOfClass:(Class)class{
