@@ -41,6 +41,13 @@
 	return [JSONEncoder new];
 }
 
++ (NSString*) JSONValueOfObject:(id)object {
+    JSONEncoder* theEncoder = [JSONEncoder encoder];
+    [theEncoder encodeObject:object];
+
+    return [theEncoder json];
+}
+
 //
 // return the created JSON representation
 //
@@ -68,10 +75,10 @@
 }
 
 - (void)suppressKey:(NSString *)key forClass:(Class)aClass{
-	NSMutableSet *classSet = [suppressedKeys objectForKey:aClass];
+	NSMutableSet *classSet = [suppressedKeys objectForKey:[aClass description]];
 	if (! classSet) {
 		classSet = [NSMutableSet new];
-		[suppressedKeys setObject:classSet forKey:aClass];
+		[suppressedKeys setObject:classSet forKey:[aClass description]];
 	}
 	[classSet addObject:key];
 }
@@ -113,7 +120,7 @@
 }
 
 - (BOOL)isKeySuppressed:(NSString *)key forClass:(Class)class {
-	NSSet *classSet = [suppressedKeys objectForKey:class];
+	NSSet *classSet = [suppressedKeys objectForKey:[class description]];
 	return classSet ? [classSet containsObject:key] : NO;
 }
 
@@ -133,12 +140,19 @@
     [self pop];
 }
 
+- (void)encodeString:(NSString*)value forKey:(NSString*)key {
+    [self setObject:value forKey:key];
+}
 - (void)encodeBool:(BOOL)value forKey:(NSString *)key {
     [self setObject:[NSNumber numberWithBool:value] forKey:key];
 }
 
 - (void)encodeDouble:(double)value forKey:(NSString *)key {
     [self setObject:[NSNumber numberWithDouble:value] forKey:key];    
+}
+
+- (void)encodeFloat:(float)realv forKey:(NSString *)key {
+    [self setObject:[NSNumber numberWithFloat:realv] forKey:key];
 }
 
 - (void)encodeInt:(int)value forKey:(NSString *)key {
@@ -221,6 +235,10 @@
     NSObject *objectEncoding = [self getEncodingFor:object];
     if(objectEncoding){
         if([objectEncoding isKindOfClass:[NSArray class]]){
+            if ([object count] == 0) {
+                return;
+            }
+            
             NSString * className = nil;
             if([object isKindOfClass:[NSArray class]]){
                 className = [[[(NSArray *) object objectAtIndex:0] class] description];
@@ -240,5 +258,4 @@
     }
 //    NSLog(@"stack %@", jsonObjectStack);
 }
-
 @end

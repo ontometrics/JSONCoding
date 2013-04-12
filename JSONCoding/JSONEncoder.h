@@ -15,6 +15,7 @@
 @interface JSONEncoder : NSCoder
 
 + (id)encoder;
++ (NSString *) JSONValueOfObject:(id)object;
 - (NSString *) json;
 
 //
