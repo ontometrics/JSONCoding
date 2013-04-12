@@ -495,7 +495,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = "";
+				SYMROOT = "${PROJECT_DIR}/../builds";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -515,7 +515,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = "";
+				SYMROOT = "${PROJECT_DIR}/../builds";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
