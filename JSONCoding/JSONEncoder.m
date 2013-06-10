@@ -185,8 +185,10 @@
             [self push:object];
             [object encodeWithCoder:self];
             
-            NSDictionary * objectEncoding = [self topObject];
+            NSMutableDictionary * objectEncoding = [NSMutableDictionary dictionaryWithDictionary:[self topObject]];
             
+            [objectEncoding setObject:[[object class] description] forKey:@"@class"];
+
             [self pop];
             
             return objectEncoding;
