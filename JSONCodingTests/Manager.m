@@ -9,8 +9,6 @@
 #import "Manager.h"
 
 @implementation Manager
-@synthesize employees;
-@synthesize nextMeetings;
 
 - (id)initWithCoder:(NSCoder *)coder {
 	if ((self = [super initWithCoder:coder])) {
@@ -28,9 +26,9 @@
 
 - (void) addEmployee:(Employee *) employee{
     if(self.employees == nil){
-        employees = [NSMutableSet new];
+        self.employees = [NSMutableSet new];
     }
-    [(NSMutableSet *) employees addObject:employee];
+    [(NSMutableSet *) self.employees addObject:employee];
     [employee setManager:self];
 }
 

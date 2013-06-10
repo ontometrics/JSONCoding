@@ -9,6 +9,7 @@
 #import "Person.h"
 
 @class Manager;
+@class Department;
 
 @interface Employee : Person
 
@@ -17,4 +18,5 @@
 @property (nonatomic, strong) NSSet * skills;
 @property (nonatomic, strong) NSArray * workExperiences;
 @property (nonatomic, strong) Manager * manager;
+@property (nonatomic, strong) Department * office;
 @end

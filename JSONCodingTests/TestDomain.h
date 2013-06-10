@@ -9,6 +9,7 @@
 #import "Person.h"
 #import "Employee.h"
 #import "Manager.h"
+#import "Department.h"
 
 #ifndef EmptyArrayJSON
 #define EmptyArrayJSON @"{\"E\":0,\"D\":\"{\"emptyArray\":[]}\"}"

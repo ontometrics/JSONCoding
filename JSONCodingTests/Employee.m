@@ -10,11 +10,6 @@
 #import "Manager.h"
 
 @implementation Employee
-@synthesize title;
-@synthesize resume;
-@synthesize skills;
-@synthesize workExperiences;
-@synthesize manager;
 
 - (id)initWithCoder:(NSCoder *)coder {
 	if ((self = [super initWithCoder:coder])) {
@@ -22,7 +17,8 @@
 		self.resume = [coder decodeObjectForKey:@"resume"];        
 		self.skills = [coder decodeObjectForKey:@"skills"];      
 		self.workExperiences = [coder decodeObjectForKey:@"workExperiences"];              
-		self.manager = [coder decodeObjectForKey:@"manager"];                
+		self.manager = [coder decodeObjectForKey:@"manager"];
+		self.office = [coder decodeObjectForKey:@"office"];
  	}
 	return self;
 }
@@ -33,7 +29,11 @@
 	[coder encodeObject:self.resume forKey:@"resume"];
 	[coder encodeObject:self.skills forKey:@"skills"];   
 	[coder encodeObject:self.workExperiences forKey:@"workExperiences"];       
-	[coder encodeObject:self.manager forKey:@"manager"];    
+	[coder encodeObject:self.manager forKey:@"manager"];
+	[coder encodeObject:self.office forKey:@"office"];
 }
 
+- (NSString *) description{
+    return [NSString stringWithFormat:@"{title:%@, resume:%@, skills:%@, workExperience:%@, manager:%@, office:%@}", self.title, self.resume, self.skills, self.workExperiences, self.manager, self.office];
+}
 @end

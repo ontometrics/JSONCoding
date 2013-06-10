@@ -10,11 +10,6 @@
 
 @implementation Person
 
-@synthesize name;
-@synthesize dateOfBirth;
-@synthesize nationalID;
-@synthesize favoriteNumbers;
-
 - (id)initWithCoder:(NSCoder *)coder {
 	if ((self = [super init])) {
         

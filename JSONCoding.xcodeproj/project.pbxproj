@@ -15,6 +15,7 @@
 		AC0E9A79153F4D22003D3AE0 /* JSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */; };
 		AC0E9A7A153F4D22003D3AE0 /* JSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */; };
 		AC0E9A7D153F4F16003D3AE0 /* BaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A7C153F4F16003D3AE0 /* BaseTestCase.m */; };
+		AC6DD4EB1766780B00C76C19 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6DD4EA1766780A00C76C19 /* Department.m */; };
 		AC8E4AAE153F13B1009044BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAD153F13B1009044BF /* Foundation.framework */; };
 		AC8E4ABC153F13B1009044BF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4ABB153F13B1009044BF /* SenTestingKit.framework */; };
 		AC8E4ABF153F13B1009044BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8E4AAD153F13B1009044BF /* Foundation.framework */; };
@@ -67,6 +68,8 @@
 		AC0E9A77153F4D22003D3AE0 /* JSONEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONEncoder.m; sourceTree = "<group>"; };
 		AC0E9A7B153F4F16003D3AE0 /* BaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestCase.h; sourceTree = "<group>"; };
 		AC0E9A7C153F4F16003D3AE0 /* BaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestCase.m; sourceTree = "<group>"; };
+		AC6DD4E91766780A00C76C19 /* Department.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
+		AC6DD4EA1766780A00C76C19 /* Department.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
 		AC8E4AAA153F13B1009044BF /* libJSONCoding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSONCoding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8E4AAD153F13B1009044BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC8E4AB1153F13B1009044BF /* JSONCoding-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSONCoding-Prefix.pch"; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				AC0E9A74153F4C4E003D3AE0 /* Employee.m */,
 				ACE937D0153F6C39007A3E67 /* Manager.h */,
 				ACE937D1153F6C39007A3E67 /* Manager.m */,
+				AC6DD4E91766780A00C76C19 /* Department.h */,
+				AC6DD4EA1766780A00C76C19 /* Department.m */,
 			);
 			name = TestDomain;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 				AF1C05E216804087005A5186 /* ActiveSupportInflectorTest.m in Sources */,
 				AF1C05E716804087005A5186 /* NSString+ActiveSupportInflector.m in Sources */,
 				AC0221701718B546005E6AC7 /* CodingTest.m in Sources */,
+				AC6DD4EB1766780B00C76C19 /* Department.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
