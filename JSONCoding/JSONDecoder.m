@@ -13,7 +13,7 @@
 
 @interface JSONDecoder()
 
-- (NSArray *)decodeArrayOfClass:(Class)class;
+//- (NSArray *)decodeArrayOfClass:(Class)class;
 - (NSArray *)decodeArrayOfPrimitives;
 - (NSObject *)decodeHibernateProxy;
 - (NSDate *) decodeDate;
@@ -140,7 +140,7 @@
     return [floatStr floatValue];
 }
 
-- (NSArray *)decodeArrayOfClass:(Class)class{
+- (NSArray *)decodeArrayOfClass:(Class)aClass{
     NSDictionary * innerDictionary = nil;    
 
 	if([[self topJsonObject] isKindOfClass:[NSArray class]]){
@@ -155,7 +155,7 @@
         }
 
         //if it is a dictionary with only one key, it can be an array of a one primitive object like ["xxx"]
-        if([[innerDictionary allKeys] count] > 1 || (class == nil && [self isObjectForUnknownClass:innerDictionary])){
+        if([[innerDictionary allKeys] count] > 1 || (aClass == nil && [self isObjectForUnknownClass:innerDictionary])){
             innerDictionary = [NSDictionary dictionaryWithObject:[self topJsonObject] forKey:@"object"];
         }
         
@@ -172,8 +172,12 @@
 		//the set has only one item
 		jsonArray = [NSArray arrayWithObject:jsonArray];
 	}
-    
+
     NSString * objectClass = [[self topJsonObjectId] singularizeString];
+    if ([[self topJsonObjectId] isEqualToString:@"root"]) {
+        objectClass = [aClass description];
+    }
+    
     if([self getClassForKey:objectClass] == nil){
         NSLog(@"Change arrays class from %@ to %@", objectClass, key);
         objectClass = key;

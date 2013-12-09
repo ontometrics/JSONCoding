@@ -78,6 +78,14 @@
                                                 hasProperty(@"description", startsWith(@"2012-04-20 03:05:00")), nil));
 }
 
+- (void) testCanDecodeArrayOfObjectsWithNoClassDefinedInTheJSON{
+    decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsArrayWithNoClass dataUsingEncoding:NSUTF8StringEncoding]];
+    NSArray *result = [decoder decodeArrayOfClass:[Employee class]];
+    
+    assertThat(result, notNilValue());
+    assertThatInt([result count], is(@2));
+}
+
 -(void)testCanDecodeEmptyArray {
     decoder = [[JSONDecoder alloc] initWithResponse:[JSONContainsEmptyList dataUsingEncoding:NSUTF8StringEncoding]];
     NSArray *result = [decoder decodeObjectForKey:@"list"];
