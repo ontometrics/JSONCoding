@@ -85,7 +85,7 @@
         //return the dictionary
         return [self topJsonObject];
 
-    }else if ([class isSubclassOfClass:[NSNull class]]) {
+    }else if ([class isSubclassOfClass:[NSNull class]] || [[[self topJsonObject] class] isSubclassOfClass:[NSNull class]]) {
 		
         object = nil;
         
