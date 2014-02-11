@@ -1,7 +1,7 @@
 What is JSONCoding?
 ===================
 
-This is a static library which can be used for iOS applications to convert objects to JSON and convert JSON to objects. This is not only for Foundation objects but any custom object that implements the NSCoding protocol.
+This is a static library which can be used for iOS/Mac applications to convert objects to JSON and convert JSON to objects. This is not only for Foundation objects but any custom object that implements the NSCoding protocol.
 
 * It will convert complex objects to a dictionary of Foundation objects, then use [NSJSONSerialization](http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html) to convert the created dictionary to JSON.
 
