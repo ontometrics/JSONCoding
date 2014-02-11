@@ -22,7 +22,6 @@
 		56879B9118AA28910085D5BC /* JSONEncoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE937C6153F506D007A3E67 /* JSONEncoderTest.m */; };
 		56879B9218AA28910085D5BC /* JSONDecoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD143031540B86E00464304 /* JSONDecoderTest.m */; };
 		56879B9318AA28910085D5BC /* CodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02216F1718B546005E6AC7 /* CodingTest.m */; };
-		56879B9518AA2A780085D5BC /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56879B9418AA2A780085D5BC /* OCHamcrest.framework */; };
 		56879B9618AA2A780085D5BC /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56879B9418AA2A780085D5BC /* OCHamcrest.framework */; };
 		56879B9718AA2AAC0085D5BC /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A71153F4A19003D3AE0 /* Person.m */; };
 		56879B9818AA2AAC0085D5BC /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A74153F4C4E003D3AE0 /* Employee.m */; };
@@ -33,7 +32,6 @@
 		56879BA018AA2D3E0085D5BC /* ActiveSupportInflectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05D716804087005A5186 /* ActiveSupportInflectorTest.m */; };
 		56879BA118AA2D3E0085D5BC /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05DB16804087005A5186 /* NSString+ActiveSupportInflector.m */; };
 		56879BA218AA2D410085D5BC /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05D516804087005A5186 /* ActiveSupportInflector.m */; };
-		56879BA318AA2D410085D5BC /* ActiveSupportInflectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05D716804087005A5186 /* ActiveSupportInflectorTest.m */; };
 		56879BA418AA2D410085D5BC /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C05DB16804087005A5186 /* NSString+ActiveSupportInflector.m */; };
 		AC0221701718B546005E6AC7 /* CodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02216F1718B546005E6AC7 /* CodingTest.m */; };
 		AC0E9A72153F4A19003D3AE0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0E9A71153F4A19003D3AE0 /* Person.m */; };
@@ -161,7 +159,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56879B5018AA27E40085D5BC /* Cocoa.framework in Frameworks */,
-				56879B9518AA2A780085D5BC /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +514,6 @@
 			files = (
 				56879B8818AA28790085D5BC /* NSData+Base64.m in Sources */,
 				56879B8A18AA28790085D5BC /* JSONEncoder.m in Sources */,
-				56879BA318AA2D410085D5BC /* ActiveSupportInflectorTest.m in Sources */,
 				56879B8918AA28790085D5BC /* NSString+Additions.m in Sources */,
 				56879BA418AA2D410085D5BC /* NSString+ActiveSupportInflector.m in Sources */,
 				56879BA218AA2D410085D5BC /* ActiveSupportInflector.m in Sources */,
@@ -869,6 +865,7 @@
 				56879B6F18AA27E50085D5BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56879B8518AA28190085D5BC /* Build configuration list for PBXNativeTarget "JSONCodingMacTests" */ = {
 			isa = XCConfigurationList;
@@ -877,6 +874,7 @@
 				56879B8718AA28190085D5BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC8E4AA4153F13B1009044BF /* Build configuration list for PBXProject "JSONCoding" */ = {
 			isa = XCConfigurationList;
